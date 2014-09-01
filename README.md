@@ -17,4 +17,4 @@ To stop the VM execute
   
 To start the macine again execute  
 ```vagrant up --provision```  
-The installation won't take place again - instaed chrome and selenium will be started on the machine.
+The installation won't take place again - instaed chrome and selenium will be started on the machine. This process should take approximately 1-2 minutes
