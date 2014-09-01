@@ -18,3 +18,12 @@ To stop the VM execute
 To start the macine again execute  
 ```vagrant up --provision```  
 The installation won't take place again - instaed chrome and selenium will be started on the machine. This process should take approximately 1-2 minutes
+
+Running on EC2
+--------------
+In order to run this machine on EC2 you will need to do the following:  
+1. Execute ```vagrant plugin install vagrant-aws```.
+2. uncomment the ```config.vm.provider``` section in the Vagrantfile and insert your access-key-id, secret-access-key etc.
+3. Change the ```config.vm.box``` property to ```"dummy"``` (TODO: temporary)  
+To run the machine execute ```vagrant up --provider=aws```.  
+For further information about vagrant-aws see [https://github.com/mitchellh/vagrant-aws](https://github.com/mitchellh/vagrant-aws) and [http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/](http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/)
