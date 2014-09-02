@@ -48,11 +48,13 @@ else
     sudo apt-get install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
 
     echo '### Installing xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 ###'
+    sudo /usr/share/debconf/fix_db.pl # somewhy needed otherwise there is a problem in the xfce4.... installation. TODO check this issue
+    sudo apt-get install dictionaries-common
     sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 # enables GUI for the VM
 
     # to allow vagrant to activate the X-server
     sudo cp /etc/X11/Xwrapper.config /etc/X11/Xwrapper.config.bak
-    sudo sed 's/^allowed_users=.*/allowed_users=anybody/' < Xwrapper.config.bak > XWrapper.config
+    sudo sh -c "sed 's/^allowed_users=.*/allowed_users=anybody/' < /etc/X11/Xwrapper.config.bak > /etc/X11/Xwrapper.config"
 
     sudo touch /.installed # mark for the next 'vagrant up' that everything is already installed
 fi
