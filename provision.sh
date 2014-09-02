@@ -32,8 +32,8 @@ else
 
     echo '### Downloading and copying the ChromeDriver to /usr/local/bin ###'
     cd /tmp
-    sudo wget "https://chromedriver.googlecode.com/files/chromedriver_linux64_2.2.zip" -O chromedriver.zip
-    sudo wget "https://selenium.googlecode.com/files/selenium-server-standalone-2.35.0.jar" -O selenium-server-standalone.jar
+    sudo wget "http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip" -O chromedriver.zip
+    sudo wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar" -O selenium-server-standalone.jar
     sudo unzip chromedriver.zip
     sudo mv chromedriver /usr/local/bin
     sudo mv selenium-server-standalone.jar /usr/local/bin
@@ -62,7 +62,7 @@ echo '### Starting Xfce4 GUI ... ###'
 cd ~
 startxfce4& # Start a GUI for the VM
 sleep 5 # somewhy required for xfce
-export DISPLAY=:0.0 # so that chrome will identify xfce as the display
+export DISPLAY=:0.0 # so that the browsers will identify xfce as the display
 
 # If you are not using GUI (the startxfce4 above), uncomment this block to simulate a displat for chrome
 # cd /vagrant
@@ -70,12 +70,12 @@ export DISPLAY=:0.0 # so that chrome will identify xfce as the display
 # export DISPLAY=:10
 # sudo Xvfb :10 -screen 0 1366x768x24 -ac &
 
-echo "### Starting Google Chrome ... ###"
-sudo su -c "google-chrome --remote-debugging-port=9222 http://localhost:4444/wd/hub &" vagrant # need to start chrome with the vagrant user
+# echo "### Starting Google Chrome ... ###"
+# sudo su -c "google-chrome --remote-debugging-port=9222 http://localhost:4444/wd/hub &" vagrant # need to start chrome with the vagrant user
 
 echo "### Starting Selenium ... ###"
 cd /usr/local/bin
-sudo nohup java -jar ./selenium-server-standalone.jar &
+sudo nohup java -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar selenium-server-standalone.jar&
 
 # Print how long the bootstrap script took to run
 T="$(($(date +%s)-T))"
