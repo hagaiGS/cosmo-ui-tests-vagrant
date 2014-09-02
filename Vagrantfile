@@ -14,6 +14,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Expose this to send requests to the standalone server from a remote machine
   config.vm.network :forwarded_port, guest:4444, host:4444
   
+  # enables GUI
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true
+  end
+
   # See Instructions in the readme to run this machine on ec2
   # config.vm.provider :aws do |aws, override|
   #   aws.access_key_id = "<access_key_id>"
