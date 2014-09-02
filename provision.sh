@@ -71,7 +71,7 @@ export DISPLAY=:0.0 # so that chrome will identify xfce as the display
 # sudo Xvfb :10 -screen 0 1366x768x24 -ac &
 
 echo "### Starting Google Chrome ... ###"
-sudo google-chrome --remote-debugging-port=9222 &
+sudo su -c "google-chrome --remote-debugging-port=9222 http://localhost:4444/wd/hub &" vagrant # need to start chrome with the vagrant user
 
 echo "### Starting Selenium ... ###"
 cd /usr/local/bin
