@@ -4,12 +4,6 @@ cosmo-ui-tests-vagrant
 a vagrant box for cosmo UI tests, running in ec2  
   
 At first you must install [vagrant-aws plugin](https://github.com/mitchellh/vagrant-aws)
-  
-To starts the machine execute  
-```git clone https://github.com/hagaiGS/cosmo-ui-tests-vagrant.git```  
-``` cd cosmo-ui-tests-vagrant```  
-
-To verify that selenium works go to [http://localhost:4444/wd/hub/static/resource/hub.html](http://localhost:4444/wd/hub/static/resource/hub.html)  
 
 Running on EC2
 --------------
@@ -18,7 +12,10 @@ In order to run this machine on EC2 you will need to do the following:
 ``` cd cosmo-ui-tests-vagrant```  
 ```vagrant plugin install vagrant-aws```.  
 ```vagrant up --provider=aws```.  
-For further information about vagrant-aws see [https://github.com/mitchellh/vagrant-aws](https://github.com/mitchellh/vagrant-aws) and [http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/](http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/)
+For further information about vagrant-aws see [https://github.com/mitchellh/vagrant-aws](https://github.com/mitchellh/vagrant-aws) and [http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/](http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/)  
+
+To verify that selenium works go to [http://localhost:4444/wd/hub/static/resource/hub.html](http://localhost:4444/wd/hub/static/resource/hub.html)  
+
 
 Creating EC2-image ("ami")
 --------------------------
