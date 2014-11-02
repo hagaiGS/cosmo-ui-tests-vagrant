@@ -11,6 +11,7 @@ In order to run this machine on EC2 you will need to do the following:
 ```git clone https://github.com/hagaiGS/cosmo-ui-tests-vagrant.git```  
 ``` cd cosmo-ui-tests-vagrant```  
 ```vagrant plugin install vagrant-aws```.  
+Configure the ```AWS_ACCESS_KEY_ID```, ```AWS_SECRET_ACCESS_KEY```, ```AWS_KEYPAIR_NAME``` and ```SSH_PRIVATE_KEY_PATH``` environment variables.  
 ```vagrant up --provider=aws```.  
 For further information about vagrant-aws see [https://github.com/mitchellh/vagrant-aws](https://github.com/mitchellh/vagrant-aws) and [http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/](http://www.iheavy.com/2014/01/16/how-to-deploy-on-amazon-ec2-with-vagrant/)  
 
