@@ -60,24 +60,24 @@ else
 fi
 
 
-echo '### Starting Xfce4 GUI ... ###'
-cd ~
-startxfce4& # Start a GUI for the VM
-sleep 5 # somewhy required for xfce
-export DISPLAY=:0.0 # so that the browsers will identify xfce as the display
+# echo '### Starting Xfce4 GUI ... ###'
+# cd ~
+# startxfce4& # Start a GUI for the VM
+# sleep 5 # somewhy required for xfce
+# export DISPLAY=:0.0 # so that the browsers will identify xfce as the display
 
-# If you are not using GUI (the startxfce4 above), uncomment this block to simulate a displat for chrome
-# cd /vagrant
-# echo "### Starting Xvfb ... ###"
-# export DISPLAY=:10
-# sudo Xvfb :10 -screen 0 1366x768x24 -ac &
+# # If you are not using GUI (the startxfce4 above), uncomment this block to simulate a displat for chrome
+cd /vagrant
+echo "### Starting Xvfb ... ###"
+export DISPLAY=:10
+sudo Xvfb :10 -screen 0 1366x768x24 -ac &
 
 # echo "### Starting Google Chrome ... ###"
 # sudo su -c "google-chrome --remote-debugging-port=9222 http://localhost:4444/wd/hub &" vagrant # need to start chrome with the vagrant user
 
 echo "### Starting Selenium ... ###"
 cd /usr/local/bin
-sudo nohup java -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar selenium-server-standalone.jar&
+sudo nohup java -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -jar selenium-server-standalone.jar -port 80&
 
 # Print how long the bootstrap script took to run
 T="$(($(date +%s)-T))"
