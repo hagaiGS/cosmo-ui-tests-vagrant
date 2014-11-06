@@ -33,7 +33,7 @@ else
     echo '### Downloading and copying the ChromeDriver to /usr/local/bin ###'
     cd /tmp
     sudo wget "http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip" -O chromedriver.zip
-    sudo wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar" -O selenium-server-standalone.jar
+    sudo wget "http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar" -O selenium-server-standalone.jar
     sudo unzip chromedriver.zip
     sudo mv chromedriver /usr/local/bin
     sudo mv selenium-server-standalone.jar /usr/local/bin
