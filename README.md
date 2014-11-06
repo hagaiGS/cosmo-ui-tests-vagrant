@@ -17,6 +17,14 @@ For further information about vagrant-aws see [https://github.com/mitchellh/vagr
 
 To verify that selenium works go to [http://localhost:4444/wd/hub/static/resource/hub.html](http://localhost:4444/wd/hub/static/resource/hub.html)  
 
+Required manual step
+--------------------
+If you are creating an image from the machine that you have just started, you need to make sure that firefox won't update itself automaticaaly, otherwise selenium and firefox won't be compatible.
+Do this by adding a ```mozilla.cfg``` file to /usr/lib/firefox that contatins the following:  
+```
+//
+lockPref("app.update.enabled", false);
+```
 
 Creating EC2-image ("ami")
 --------------------------
