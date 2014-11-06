@@ -25,6 +25,7 @@ Do this by adding a ```mozilla.cfg``` file to /usr/lib/firefox that contatins th
 //
 lockPref("app.update.enabled", false);
 ```
+for more info read the following links: [link1](http://forums.mozillazine.org/viewtopic.php?f=38&t=555328) [link2](http://kb.mozillazine.org/Locking_preferences)
 
 Creating EC2-image ("ami")
 --------------------------
